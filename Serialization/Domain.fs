@@ -16,7 +16,7 @@ module Domain = // our domain-driven types
             else
                 Some(String50 str)
 
-        let value str50 = string(str50)
+        let value (String50 str) = str
 
     /// constrained to be bigger than 1/1/1900 and less than today's date
     type Birthdate = private Birthdate of DateTime 
@@ -29,7 +29,8 @@ module Domain = // our domain-driven types
                 None
             else
                 Some(Birthdate aDateTime)
-        let value birthdate = birthdate
+
+        let value (Birthdate birthdate) = birthdate
 
     /// Domain type
     type Person = {
