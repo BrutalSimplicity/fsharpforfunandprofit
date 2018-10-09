@@ -1,6 +1,7 @@
 namespace Serialization
 
 open System
+open System.Security.Permissions
 
 module Domain = // our domain-driven types
 
