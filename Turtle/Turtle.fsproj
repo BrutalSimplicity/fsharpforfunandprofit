@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Common.fs" />
+    <Compile Include="DomainOO.fs" />
+    <Compile Include="ApiOO.fs" />
+    <Compile Include="ClientOO.fs" />
+    <Compile Include="DomainFP.fs" />
+    <Compile Include="ClientFP.fs" />
+  </ItemGroup>
+</Project>
