@@ -29,7 +29,5 @@ module Client =
             |> move 100.0
             |> turn angleDegrees
 
-        List.fold
-
         [1..n]
         |> List.fold oneSide Turtle.initialTurtleState

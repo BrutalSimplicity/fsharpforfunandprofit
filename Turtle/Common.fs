@@ -32,3 +32,17 @@ module Common =
         
     let dummyDrawLine log oldPos newPos color =
         log (sprintf "...Draw line from (%0.1f,%0.1f) to (%0.1f,%0.1f) using %A" oldPos.x oldPos.y newPos.x newPos.y color)
+
+    type ResultBuilder() =
+        
+        member this.Bind(x, f) =
+            match x with
+            | Error err -> Error err
+            | Ok a -> f a
+
+        member this.Result(x) =
+            Ok x
+
+    let result = ResultBuilder()
+
+

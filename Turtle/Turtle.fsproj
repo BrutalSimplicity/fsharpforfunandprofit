@@ -5,9 +5,11 @@
   <ItemGroup>
     <Compile Include="Common.fs" />
     <Compile Include="DomainOO.fs" />
+    <Compile Include="TurtleAgent.fs" />
     <Compile Include="ApiOO.fs" />
     <Compile Include="ClientOO.fs" />
     <Compile Include="DomainFP.fs" />
     <Compile Include="ClientFP.fs" />
+    <Compile Include="ApiFP.fs" />
   </ItemGroup>
 </Project>
