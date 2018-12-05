@@ -16,5 +16,5 @@ let main argv =
         |> Array.sortByDescending (fun x -> x.Frequency)
         |> Array.take 20
 
-    bestToppings |> Array.map (fun x -> printfn "%A" x) |> ignore
+    bestToppings |> Array.iter (printfn "%A")
     0 // return an integer exit code

@@ -3,6 +3,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Helpers.fs" />
     <Compile Include="Domain.fs" />
     <Compile Include="Dto.fs" />
     <Compile Include="Json.fs" />

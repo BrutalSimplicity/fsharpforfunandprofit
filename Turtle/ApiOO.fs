@@ -30,13 +30,9 @@ module Api =
                 let msg = sprintf "Color '%s' is not recognized" colorStr
                 raise (TurtleApiException msg)
 
-    type TurtleApi() =
-
-        let log message = printf "%s" message
+    type TurtleApi(turtle: ITurtle) =
 
         let trimString (s: string) = s.Trim()
-
-        let turtle = Turtle(log)
 
         member this.Exec (commandStr: string) =
             let tokens = 

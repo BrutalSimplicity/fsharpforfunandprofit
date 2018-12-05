@@ -2,6 +2,7 @@ namespace Serialization
 
 open System
 open Domain
+open Helpers
 
 module Dto =
     type Person = {
@@ -23,3 +24,13 @@ module Dto =
             let birthdate = person.Birthdate |> Birthdate.value
 
             {First = first; Last = last; Birthdate = birthdate}
+
+        let toDomain(person: Person): Result<Domain.Person, string> =
+            result
+                {
+                let! first = person.First |> String50.create "First"
+                let! last = person.Last |> String50.create "Last"
+                let! birthdate = person.Birthdate |> Birthdate.create "Birthdate"
+
+                return {First = first; Last = last; Birthdate = birthdate}
+                }

@@ -4,6 +4,13 @@ open Turtle
 
 module Service =
 
+    type ITurtle =
+        abstract Move: Distance -> unit
+        abstract Turn: Angle -> unit
+        abstract PenUp: unit -> unit
+        abstract PenDown: unit -> unit
+        abstract SetColor: PenColor -> unit
+
     type Turtle(log) =
         let mutable currentPosition = initialPosition
         let mutable currentAngle = 0.0<Degrees>
@@ -37,6 +44,25 @@ module Service =
             log (sprintf "SetColor %A" color)
             currentColor <- color
 
-    
-        
+
+    let normalSize() =
+        let turtle = Turtle(log)
+
+        {new ITurtle with
+            member this.Move dist = turtle.Move dist
+            member this.Turn angle = turtle.Turn angle
+            member this.PenDown() = turtle.PenDown()
+            member this.PenUp() = turtle.PenUp()
+            member this.SetColor color = turtle.SetColor color}
+
+    let halfSize() =
+        let turtle = normalSize()
+
+
+        {new ITurtle with
+            member this.Move dist = turtle.Move (dist/2.0)
+            member this.Turn angle = turtle.Turn angle
+            member this.PenDown() = turtle.PenDown()
+            member this.PenUp() = turtle.PenUp()
+            member this.SetColor color = turtle.SetColor color}
 

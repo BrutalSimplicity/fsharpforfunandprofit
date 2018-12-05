@@ -1,5 +1,7 @@
 namespace Turtle.FP
 open Turtle.Common
+open Turtle.FP.Turtle
+open Turtle.FP.Api
 
 module Client =
 
@@ -12,13 +14,15 @@ module Client =
     let setColor = Turtle.setColor log
 
     let drawTriangle =
-        Turtle.initialTurtleState
-        |> move 100.0
-        |> turn 120.0<Degrees>
-        |> move 100.0
-        |> turn 120.0<Degrees>
-        |> move 100.0
-        |> turn 120.0<Degrees>
+        let turtleFunctions = normalSize()
+        let api = new TurtleApiWithInjectedDependencies(turtleFunctions)
+
+        api.Exec "Move 100" |> ignore
+        api.Exec "Turn 120"
+        api.Exec "Move 100"
+        api.Exec "Turn 120"
+        api.Exec "Move 100"
+        api.Exec "Turn 120"
 
     let drawPolygon n =
         let angle = 180.0 - (360.0/float n)
